@@ -7,6 +7,11 @@
 //
 
 #import "AppDelegate.h"
+#import "ViewController.h"
+#import "NextViewController.h"
+
+#define SCREENWIDTH       [UIScreen mainScreen].bounds.size.width
+#define SCREENHEIGHT      [UIScreen mainScreen].bounds.size.height
 
 @interface AppDelegate ()
 
@@ -16,7 +21,18 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    ViewController *vc1 = [[ViewController alloc] init];
+    UINavigationController *nav1 = [[UINavigationController alloc] initWithRootViewController:vc1];
+    nav1.tabBarItem = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemFeatured tag:1];
+    nav1.tabBarItem.title = @"one";
+    NextViewController *vc2 = [[NextViewController alloc] init];
+    UINavigationController *nav2 = [[UINavigationController alloc] initWithRootViewController:vc2];
+    nav2.tabBarItem = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemContacts tag:2];
+    nav2.tabBarItem.title = @"two";
+    UITabBarController *tab = [[UITabBarController alloc] init];
+    [tab setViewControllers:[NSMutableArray arrayWithObjects:nav1, nav2, nil]];
+    tab.view.frame = CGRectMake(0, -20, SCREENWIDTH, SCREENHEIGHT);
+    self.window.rootViewController = tab;
     return YES;
 }
 

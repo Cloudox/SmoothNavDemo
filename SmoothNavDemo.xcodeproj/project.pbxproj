@@ -15,6 +15,7 @@
 		B8740D9D1E79569D0019369C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8740D9B1E79569D0019369C /* LaunchScreen.storyboard */; };
 		B8740DA81E79569D0019369C /* SmoothNavDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B8740DA71E79569D0019369C /* SmoothNavDemoTests.m */; };
 		B8740DB31E79569D0019369C /* SmoothNavDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = B8740DB21E79569D0019369C /* SmoothNavDemoUITests.m */; };
+		B8740DC21E7957840019369C /* NextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8740DC11E7957840019369C /* NextViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,8 @@
 		B8740DAE1E79569D0019369C /* SmoothNavDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmoothNavDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8740DB21E79569D0019369C /* SmoothNavDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SmoothNavDemoUITests.m; sourceTree = "<group>"; };
 		B8740DB41E79569D0019369C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B8740DC01E7957840019369C /* NextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NextViewController.h; sourceTree = "<group>"; };
+		B8740DC11E7957840019369C /* NextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NextViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +108,8 @@
 				B8740D911E79569D0019369C /* AppDelegate.m */,
 				B8740D931E79569D0019369C /* ViewController.h */,
 				B8740D941E79569D0019369C /* ViewController.m */,
+				B8740DC01E7957840019369C /* NextViewController.h */,
+				B8740DC11E7957840019369C /* NextViewController.m */,
 				B8740D961E79569D0019369C /* Main.storyboard */,
 				B8740D991E79569D0019369C /* Assets.xcassets */,
 				B8740D9B1E79569D0019369C /* LaunchScreen.storyboard */,
@@ -274,6 +279,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B8740D951E79569D0019369C /* ViewController.m in Sources */,
+				B8740DC21E7957840019369C /* NextViewController.m in Sources */,
 				B8740D921E79569D0019369C /* AppDelegate.m in Sources */,
 				B8740D8F1E79569D0019369C /* main.m in Sources */,
 			);
