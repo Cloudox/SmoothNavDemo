@@ -8,6 +8,8 @@
 
 #import "ViewController.h"
 #import "NextViewController.h"
+#import "UINavigationController+Cloudox.h"
+#import "UIViewController+Cloudox.h"
 
 @interface ViewController ()
 
@@ -25,6 +27,33 @@
     [btn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
     [btn addTarget:self action:@selector(toNextView) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn];
+    
+    self.navigationController.cloudox = @"hey，this is category!";
+    NSLog(@"%@", self.navigationController.cloudox);
+    
+    [self getSub:self.navigationController.navigationBar andLevel:1];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    self.navBarBgAlpha = @"1.0";
+}
+
+// 获取子视图
+- (void)getSub:(UIView *)view andLevel:(int)level {
+    NSArray *subviews = [view subviews];
+    if ([subviews count] == 0) return;
+    for (UIView *subview in subviews) {
+        
+        NSString *blank = @"";
+        for (int i = 1; i < level; i++) {
+            blank = [NSString stringWithFormat:@"  %@", blank];
+        }
+        NSLog(@"%@%d: %@", blank, level, subview.class);
+        [self getSub:subview andLevel:(level+1)];
+        
+    }
 }
 
 // 按钮响应
