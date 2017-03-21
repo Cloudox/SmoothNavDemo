@@ -34,7 +34,7 @@ static char *CloudoxKey = "CloudoxKey";
     
     objc_setAssociatedObject(self, CloudoxKey, navBarBgAlpha, OBJC_ASSOCIATION_COPY_NONATOMIC);
     
-    // 设置导航栏透明度
+    // 设置导航栏透明度（利用Category自己添加的方法）
     [self.navigationController setNeedsNavigationBackground:[navBarBgAlpha floatValue]];
 }
 
