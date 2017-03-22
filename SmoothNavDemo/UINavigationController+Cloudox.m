@@ -12,15 +12,16 @@
 
 @implementation UINavigationController (Cloudox)
 
+// 设置导航栏背景透明度
 - (void)setNeedsNavigationBackground:(CGFloat)alpha {
     // 导航栏背景透明度设置
-    UIView *barBackgroundView = [[self.navigationBar subviews] objectAtIndex:0];
-    UIImageView *backgroundImageView = [[barBackgroundView subviews] objectAtIndex:0];
+    UIView *barBackgroundView = [[self.navigationBar subviews] objectAtIndex:0];// _UIBarBackground
+    UIImageView *backgroundImageView = [[barBackgroundView subviews] objectAtIndex:0];// UIImageView
     if (self.navigationBar.isTranslucent) {
         if (backgroundImageView != nil && backgroundImageView.image != nil) {
             barBackgroundView.alpha = alpha;
         } else {
-            UIView *backgroundEffectView = [[barBackgroundView subviews] objectAtIndex:1];
+            UIView *backgroundEffectView = [[barBackgroundView subviews] objectAtIndex:1];// UIVisualEffectView
             if (backgroundEffectView != nil) {
                 backgroundEffectView.alpha = alpha;
             }
@@ -35,6 +36,7 @@
 
 + (void)initialize {
     if (self == [UINavigationController self]) {
+        // 交换方法
         SEL originalSelector = NSSelectorFromString(@"_updateInteractiveTransition:");
         SEL swizzledSelector = NSSelectorFromString(@"et__updateInteractiveTransition:");
         Method originalMethod = class_getInstanceMethod([self class], originalSelector);
@@ -43,12 +45,14 @@
     }
 }
 
+// 交换的方法，监控滑动手势
 - (void)et__updateInteractiveTransition:(CGFloat)percentComplete {
     [self et__updateInteractiveTransition:(percentComplete)];
     UIViewController *topVC = self.topViewController;
     if (topVC != nil) {
         id<UIViewControllerTransitionCoordinator> coor = topVC.transitionCoordinator;
         if (coor != nil) {
+            // 随着滑动的过程设置导航栏透明度渐变
             CGFloat fromAlpha = [[coor viewControllerForKey:UITransitionContextFromViewControllerKey].navBarBgAlpha floatValue];
             CGFloat toAlpha = [[coor viewControllerForKey:UITransitionContextToViewControllerKey].navBarBgAlpha floatValue];
             CGFloat nowAlpha = fromAlpha + (toAlpha - fromAlpha) * percentComplete;
@@ -89,6 +93,7 @@
         }];
     }
 }
+
 
 #pragma mark - UINavigationBar Delegate
 - (void)navigationBar:(UINavigationBar *)navigationBar didPopItem:(UINavigationItem *)item {
