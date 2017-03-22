@@ -18,6 +18,7 @@
 		B8740DC21E7957840019369C /* NextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8740DC11E7957840019369C /* NextViewController.m */; };
 		B8740DCB1E7E70C70019369C /* UINavigationController+Cloudox.m in Sources */ = {isa = PBXBuildFile; fileRef = B8740DCA1E7E70C70019369C /* UINavigationController+Cloudox.m */; };
 		B8740E131E7FEEBA0019369C /* UIViewController+Cloudox.m in Sources */ = {isa = PBXBuildFile; fileRef = B8740E121E7FEEBA0019369C /* UIViewController+Cloudox.m */; };
+		B8740E541E829A950019369C /* 2017-03-22 19_28_33.gif in Resources */ = {isa = PBXBuildFile; fileRef = B8740E531E829A950019369C /* 2017-03-22 19_28_33.gif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		B8740DCA1E7E70C70019369C /* UINavigationController+Cloudox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+Cloudox.m"; sourceTree = "<group>"; };
 		B8740E111E7FEEBA0019369C /* UIViewController+Cloudox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Cloudox.h"; sourceTree = "<group>"; };
 		B8740E121E7FEEBA0019369C /* UIViewController+Cloudox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Cloudox.m"; sourceTree = "<group>"; };
+		B8740E531E829A950019369C /* 2017-03-22 19_28_33.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "2017-03-22 19_28_33.gif"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 				B8740DA61E79569D0019369C /* SmoothNavDemoTests */,
 				B8740DB11E79569D0019369C /* SmoothNavDemoUITests */,
 				B8740D8B1E79569D0019369C /* Products */,
+				B8740E531E829A950019369C /* 2017-03-22 19_28_33.gif */,
 			);
 			sourceTree = "<group>";
 		};
@@ -263,6 +266,7 @@
 			files = (
 				B8740D9D1E79569D0019369C /* LaunchScreen.storyboard in Resources */,
 				B8740D9A1E79569D0019369C /* Assets.xcassets in Resources */,
+				B8740E541E829A950019369C /* 2017-03-22 19_28_33.gif in Resources */,
 				B8740D981E79569D0019369C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

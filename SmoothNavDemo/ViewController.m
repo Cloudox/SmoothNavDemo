@@ -20,12 +20,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"First View";
-    self.view.backgroundColor = [UIColor whiteColor];
+//    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = [UIColor colorWithRed:0x32/255.0f green:0xAB/255.0f blue:0x64/255.0f alpha:1.0f];
 //    self.navigationController.delegate = self.navigationController;
     
     UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(100, 100, 200, 50)];
     [btn setTitle:@"Next View" forState:UIControlStateNormal];
-    [btn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+    [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [btn addTarget:self action:@selector(toNextView) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn];
     

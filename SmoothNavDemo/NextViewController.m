@@ -23,7 +23,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"Second View";
-    self.view.backgroundColor = [UIColor lightGrayColor];
+//    self.view.backgroundColor = [UIColor lightGrayColor];
+    self.view.backgroundColor = [UIColor colorWithRed:0xe0/255.0f green:0x7a/255.0f blue:0x40/255.0f alpha:1.0f];
+    
+    
     
     self.navigationController.delegate = self;
 //    self.navigationController.delegate = self.navigationController;
@@ -45,6 +48,10 @@
     [super viewWillAppear:animated];
     
     self.navBarBgAlpha = @"0.0";
+    
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+    
 //    self.navigationController.navigationBar.shadowImage = [self imageByApplyingAlpha:0.0 image:self.navigationController.navigationBar.shadowImage];
     
 //    [self.navigationController setNavigationBarHidden:YES animated:YES];
@@ -61,6 +68,9 @@
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
+    
+    self.navigationController.navigationBar.tintColor = [UIColor darkGrayColor];
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor blackColor]}];
     
 //    [self.navigationController setNavigationBarHidden:NO animated:YES];
     
