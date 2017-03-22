@@ -21,6 +21,7 @@
     [super viewDidLoad];
     self.title = @"First View";
     self.view.backgroundColor = [UIColor whiteColor];
+//    self.navigationController.delegate = self.navigationController;
     
     UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(100, 100, 200, 50)];
     [btn setTitle:@"Next View" forState:UIControlStateNormal];

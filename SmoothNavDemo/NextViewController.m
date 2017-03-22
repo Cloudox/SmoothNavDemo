@@ -9,6 +9,7 @@
 #import "NextViewController.h"
 #import "ViewController.h"
 #import "UIViewController+Cloudox.h"
+#import "UINavigationController+Cloudox.h"
 
 @interface NextViewController () <UINavigationControllerDelegate>
 
@@ -25,6 +26,7 @@
     self.view.backgroundColor = [UIColor lightGrayColor];
     
     self.navigationController.delegate = self;
+//    self.navigationController.delegate = self.navigationController;
     
     UIButton *back = [[UIButton alloc] initWithFrame:CGRectMake(100, 100, 200, 50)];
     [back setTitle:@"Back" forState:UIControlStateNormal];
