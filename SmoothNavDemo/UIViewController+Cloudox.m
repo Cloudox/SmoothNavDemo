@@ -15,7 +15,7 @@
 //定义常量 必须是C语言字符串
 static char *CloudoxKey = "CloudoxKey";
 
--(void)setNavBarBgAlpha:(NSString *)navBarBgAlpha{
+- (void)setNavBarBgAlpha:(NSString *)navBarBgAlpha {
     /*
      OBJC_ASSOCIATION_ASSIGN;            //assign策略
      OBJC_ASSOCIATION_COPY_NONATOMIC;    //copy策略
@@ -38,8 +38,9 @@ static char *CloudoxKey = "CloudoxKey";
     [self.navigationController setNeedsNavigationBackground:[navBarBgAlpha floatValue]];
 }
 
--(NSString *)navBarBgAlpha{
-    return objc_getAssociatedObject(self, CloudoxKey);
+- (NSString *)navBarBgAlpha {
+    return objc_getAssociatedObject(self, CloudoxKey) ? : @"1.0";
 }
+
 
 @end
