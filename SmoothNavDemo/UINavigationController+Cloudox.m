@@ -68,8 +68,16 @@
     if (topVC != nil) {
         id<UIViewControllerTransitionCoordinator> coor = topVC.transitionCoordinator;
         if (coor != nil) {
-            [coor notifyWhenInteractionChangesUsingBlock:^(id<UIViewControllerTransitionCoordinatorContext> context){
+//            [coor notifyWhenInteractionChangesUsingBlock:^(id<UIViewControllerTransitionCoordinatorContext> context){
+//                [self dealInteractionChanges:context];
+//            }];
+            
+            // notifyWhenInteractionChangesUsingBlock是10.0以后的api，换成notifyWhenInteractionEndsUsingBlock
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+            [coor notifyWhenInteractionEndsUsingBlock:^(id<UIViewControllerTransitionCoordinatorContext> context){
                 [self dealInteractionChanges:context];
+#pragma clang diagnostic pop
             }];
         }
     }
