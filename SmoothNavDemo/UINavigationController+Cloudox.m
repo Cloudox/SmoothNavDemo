@@ -16,7 +16,18 @@
 - (void)setNeedsNavigationBackground:(CGFloat)alpha {
     // 导航栏背景透明度设置
     UIView *barBackgroundView = [[self.navigationBar subviews] objectAtIndex:0];// _UIBarBackground
-    UIImageView *backgroundImageView = [[barBackgroundView subviews] objectAtIndex:0];// UIImageView
+    
+    // ios9和ios10 navigationBar的view层级顺序不同，需判断类型
+    UIImageView *backgroundImageView;
+    UIView *backgroundEffectView;
+    for (id view in  barBackgroundView.subviews) {
+        if ([view isKindOfClass:[UIImageView class]]) {
+            backgroundImageView = view;
+        }else{
+            backgroundEffectView = view;
+        }
+    }
+    
     if (self.navigationBar.isTranslucent) {
         if (backgroundImageView != nil && backgroundImageView.image != nil) {
             barBackgroundView.alpha = alpha;
