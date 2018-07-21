@@ -14,20 +14,42 @@
 
 // 设置导航栏背景透明度
 - (void)setNeedsNavigationBackground:(CGFloat)alpha {
+    if (!self.navigationBar.isTranslucent) return;
+    
     // 导航栏背景透明度设置
-    UIView *barBackgroundView = [[self.navigationBar subviews] objectAtIndex:0];// _UIBarBackground
-    UIImageView *backgroundImageView = [[barBackgroundView subviews] objectAtIndex:0];// UIImageView
-    if (self.navigationBar.isTranslucent) {
+    UIView *barBackgroundView;// _UIBarBackground
+    UIImageView *backgroundImageView;// UIImageView
+    UIView *backgroundEffectView;// UIVisualEffectView
+    
+    if (@available(iOS 10.0, *)) {//
+        barBackgroundView = [self.navigationBar.subviews objectAtIndex:0];//_UIBarBackground
+        backgroundImageView = [barBackgroundView.subviews objectAtIndex:0];//UIImageView
         if (backgroundImageView != nil && backgroundImageView.image != nil) {
             barBackgroundView.alpha = alpha;
         } else {
-            UIView *backgroundEffectView = [[barBackgroundView subviews] objectAtIndex:1];// UIVisualEffectView
+            backgroundEffectView = [barBackgroundView.subviews objectAtIndex:1];//backgroundEffectView
             if (backgroundEffectView != nil) {
                 backgroundEffectView.alpha = alpha;
             }
         }
-    } else {
-        barBackgroundView.alpha = alpha;
+        
+    }else{
+        for (UIView *view in self.navigationBar.subviews) {
+            if ([view isKindOfClass:NSClassFromString(@"_UINavigationBarBackground")]) {
+                barBackgroundView = view;
+                barBackgroundView.alpha = alpha;
+                break;
+            }
+        }
+        for (UIView *otherView in barBackgroundView.subviews) {
+            if ([otherView isKindOfClass:NSClassFromString(@"UIImageView")]) {
+                backgroundImageView = (UIImageView *)otherView;
+                backgroundImageView.alpha = alpha;
+            }else if ([otherView isKindOfClass:NSClassFromString(@"_UIBackdropView")]) {
+                backgroundEffectView = otherView;
+                backgroundEffectView.alpha = alpha;
+            }
+        }
     }
     
     // 对导航栏下面那条线做处理
